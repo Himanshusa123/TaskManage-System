@@ -16,7 +16,7 @@ router.post('/upload-image',upload.single("image"),(req,res)=>{
         return res.status(400).send('No file uploaded.');
         
     }
-    const imageUrl=`http://localhost:8080/uploads/${req.file.filename}`;
+    const imageUrl=`http://localhost:${process.env.PORT}/uploads/${req.file.filename}`;
     res.status(200).json({
         message:'Image uploaded successfully',
         imageUrl:imageUrl
